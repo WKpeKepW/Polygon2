@@ -1,0 +1,1 @@
+localhost;3308;polygonbd;root;;utf8
