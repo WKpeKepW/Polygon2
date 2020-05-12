@@ -16,9 +16,16 @@ namespace Polygon_2
         StreamReader Sr;
         StreamWriter Sw;
         string text;
+        public delegate void EventHandlerForChangeLanguage();
+        public static event EventHandlerForChangeLanguage ChangeLanguage;
         public Form3()
         {
             InitializeComponent();
+            Construct();
+            ChangeLanguage += ChangeLanguageForm;
+        }
+        void Construct()
+        {
             Sr = new StreamReader(Application.StartupPath + "\\config.txt");
             text = Sr.ReadToEnd();
             string[] buff = text.Split(';');
@@ -31,8 +38,25 @@ namespace Polygon_2
                 textBox5.Text = buff[4];
                 textBox6.Text = buff[5];
             }
-            catch (Exception) {}
+            catch (Exception) { }
             Sr.Close();
+        }
+        void ChangeLanguageForm()
+        {
+            Text = SetLanguage.SetString(Text);
+            SetLanguage.Set(this);
+            if (SetLanguage.IsEnglishOn)
+                pictureBox1.Image = Image.FromFile(Application.StartupPath + "\\picture\\On.png");
+            else
+                pictureBox1.Image = Image.FromFile(Application.StartupPath + "\\picture\\Off.png");
+        }
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            if (SetLanguage.IsEnglishOn)
+                SetLanguage.IsEnglishOn = false;
+            else
+                SetLanguage.IsEnglishOn = true;
+            ChangeLanguage.Invoke();
         }
 
         private void Form3_FormClosed(object sender, FormClosedEventArgs e)
@@ -57,7 +81,7 @@ namespace Polygon_2
             }
             Sw.Write(text);
             Sw.Close();
-            MessageBox.Show("Настройки успешно изменены");
+            MessageBox.Show(SetLanguage.SetString("Настройки успешно изменены"));
         }
     }
 }

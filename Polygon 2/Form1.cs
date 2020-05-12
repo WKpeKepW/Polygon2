@@ -19,8 +19,17 @@ namespace Polygon_2
         public Form1()
         {
             InitializeComponent();
+            Form3.ChangeLanguage += ChangeLanguageForm;
         }
-
+        void ChangeLanguageForm()
+        {
+            SetLanguage.Set(this);
+            Text = SetLanguage.SetString(Text);
+            if (SetLanguage.IsEnglishOn)
+                pictureBox2.Image = Image.FromFile(Application.StartupPath + "\\picture\\EnterEN.png");
+            else
+                pictureBox2.Image = Image.FromFile(Application.StartupPath + "\\picture\\EnterRU.png");
+        }
         private void PictureBox1_Click(object sender, EventArgs e)
         {
             if (textBox2.UseSystemPasswordChar == false)
@@ -52,7 +61,7 @@ namespace Polygon_2
             {
                 if (sql.Exeptionerror == 0)
                 {
-                    MessageBox.Show("Ошибка авторизации");
+                    MessageBox.Show(SetLanguage.SetString("Ошибка авторизации"));
                 }
             }
         }

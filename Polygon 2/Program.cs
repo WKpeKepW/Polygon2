@@ -16,6 +16,8 @@ namespace Polygon_2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //ChangeLanguage.f = f2;
+            //ChangeLanguage.ComponentExtract();
             Application.Run(new Form1());
         }
     }

@@ -41,8 +41,14 @@ namespace Polygon_2
         public Form2()
         {
             InitializeComponent();
+            Construct();
+            ChangeLanguageForm();
+            Form3.ChangeLanguage += ChangeLanguageForm;
+        }
+        void Construct()
+        {
             if (Form1.user != "admin")
-            { tabPage4.Parent = null; tabPage5.Parent = null; pictureBox15.Hide() ; pictureBox16.Hide(); pictureBox17.Hide(); }
+            { tabPage4.Parent = null; tabPage5.Parent = null; pictureBox15.Hide(); pictureBox16.Hide(); pictureBox17.Hide(); }
             sql = new SqlCreater();
             #region combo
             comboBox1.DataSource = comboBox2.Items;
@@ -62,27 +68,53 @@ namespace Polygon_2
             button97.Hide();
             #endregion
             update();
-            
         }
-
+        void ChangeLanguageForm()
+        {
+            Text = SetLanguage.SetString(Text);
+            tabPage1.Text = SetLanguage.SetString(tabPage1.Text);
+            tabPage2.Text = SetLanguage.SetString(tabPage2.Text);
+            tabPage3.Text = SetLanguage.SetString(tabPage3.Text);
+            if (Form1.user == "admin")
+            {
+                tabPage4.Text = SetLanguage.SetString(tabPage4.Text);
+                tabPage5.Text = SetLanguage.SetString(tabPage5.Text);
+            }
+            SetLanguage.Set(this);
+        }
         #region евенты доп инфы
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox1.Text = sql.OneLine("orders", "Описание", dataGridView1[0, dataGridView1.CurrentCell.RowIndex].Value.ToString());
-            textBox2.Text = sql.OneLine("orders", "Доп.информация", dataGridView1[0, dataGridView1.CurrentCell.RowIndex].Value.ToString());
-            textBox10.Text = sql.OneLine("orders", "ФИО", dataGridView1[0, dataGridView1.CurrentCell.RowIndex].Value.ToString());
+            try
+            {
+                textBox1.Text = sql.OneLine("orders", "Описание", dataGridView1[0, dataGridView1.CurrentCell.RowIndex].Value.ToString());
+                textBox2.Text = sql.OneLine("orders", "Доп.информация", dataGridView1[0, dataGridView1.CurrentCell.RowIndex].Value.ToString());
+                textBox10.Text = sql.OneLine("orders", "ФИО", dataGridView1[0, dataGridView1.CurrentCell.RowIndex].Value.ToString());
+            }
+            catch (NullReferenceException)
+            { MessageBox.Show(SetLanguage.SetString("Выберете запись")); }
         }
         private void DataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox4.Text = sql.OneLine("orders", "Описание", dataGridView2[0, dataGridView2.CurrentCell.RowIndex].Value.ToString());
-            textBox3.Text = sql.OneLine("orders", "Доп.информация", dataGridView2[0, dataGridView2.CurrentCell.RowIndex].Value.ToString());
-            textBox23.Text = sql.OneLine("orders", "ФИО", dataGridView2[0, dataGridView2.CurrentCell.RowIndex].Value.ToString());
+            try
+            {
+                textBox4.Text = sql.OneLine("orders", "Описание", dataGridView2[0, dataGridView2.CurrentCell.RowIndex].Value.ToString());
+                textBox3.Text = sql.OneLine("orders", "Доп.информация", dataGridView2[0, dataGridView2.CurrentCell.RowIndex].Value.ToString());
+                textBox23.Text = sql.OneLine("orders", "ФИО", dataGridView2[0, dataGridView2.CurrentCell.RowIndex].Value.ToString());
+            }
+            catch (NullReferenceException)
+            { MessageBox.Show(SetLanguage.SetString("Выберете запись")); }
         }
         private void DataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox6.Text = sql.OneLine("orders", "Описание", dataGridView3[0, dataGridView3.CurrentCell.RowIndex].Value.ToString());
-            textBox5.Text = sql.OneLine("orders", "Доп.информация", dataGridView3[0, dataGridView3.CurrentCell.RowIndex].Value.ToString());
-            textBox24.Text = sql.OneLine("orders", "Доп.информация", dataGridView3[0, dataGridView3.CurrentCell.RowIndex].Value.ToString());
+            try
+            {
+                textBox6.Text = sql.OneLine("orders", "Описание", dataGridView3[0, dataGridView3.CurrentCell.RowIndex].Value.ToString());
+                textBox5.Text = sql.OneLine("orders", "Доп.информация", dataGridView3[0, dataGridView3.CurrentCell.RowIndex].Value.ToString());
+                textBox24.Text = sql.OneLine("orders", "Доп.информация", dataGridView3[0, dataGridView3.CurrentCell.RowIndex].Value.ToString());
+            }
+            catch (NullReferenceException)
+            { MessageBox.Show(SetLanguage.SetString("Выберете запись")); }
         }
         #endregion
         #region кнопки 
@@ -95,7 +127,7 @@ namespace Polygon_2
                 update();
             }
             catch (NullReferenceException)
-            { MessageBox.Show("Выберете запись"); }
+            { MessageBox.Show(SetLanguage.SetString("Выберете запись")); }
         }
         private void PictureBox11_Click(object sender, EventArgs e) //button2 
         {
@@ -109,7 +141,7 @@ namespace Polygon_2
                 update();
             }
             catch (NullReferenceException)
-            { MessageBox.Show("Выберете запись"); }
+            { MessageBox.Show(SetLanguage.SetString("Выберете запись")); }
         }
         private void PictureBox16_Click(object sender, EventArgs e)
         {
@@ -122,7 +154,7 @@ namespace Polygon_2
                 update();
             }
             catch (NullReferenceException)
-            { MessageBox.Show("Выберете запись"); }
+            { MessageBox.Show(SetLanguage.SetString("Выберете запись")); }
         }
         private void PictureBox17_Click(object sender, EventArgs e)
         {
@@ -136,7 +168,7 @@ namespace Polygon_2
                 update();
             }
             catch (NullReferenceException)
-            { MessageBox.Show("Выберете запись"); }
+            { MessageBox.Show(SetLanguage.SetString("Выберете запись")); }
         }
         private void PictureBox5_Click(object sender, EventArgs e)
         {
@@ -151,7 +183,7 @@ namespace Polygon_2
                 sql.CommandToTable("INSERT INTO `stat`(`id_stat`, `Пользователь`, `Кол-во работ`, `Последняя выполненая`) VALUES (null,'" + textBox99.Text + "',0,'');");
             }
             else
-                MessageBox.Show("Не совпадение паролей", "Ошибка");
+                MessageBox.Show(SetLanguage.SetString("Не совпадение паролей"), SetLanguage.SetString("Ошибка"));
 
             update();
         }
@@ -159,13 +191,13 @@ namespace Polygon_2
         {
             try
             {
-                DialogResult res = MessageBox.Show("Вы уверены что хотите удалить заказ?", "Сообщение", MessageBoxButtons.YesNo);
+                DialogResult res = MessageBox.Show(SetLanguage.SetString("Вы уверены что хотите удалить заказ?"), SetLanguage.SetString("Сообщение"), MessageBoxButtons.YesNo);
                 if (res == DialogResult.Yes)
                     sql.CommandToTable("delete From `orders` where `Компания` = '" + dataGridView1[0, dataGridView1.CurrentCell.RowIndex].Value.ToString() + "';");
                 update();
             }
             catch (NullReferenceException)
-            { MessageBox.Show("Выберете запись"); }
+            { MessageBox.Show(SetLanguage.SetString("Выберете запись")); }
         }
         private void PictureBox20_Click(object sender, EventArgs e)
         {
@@ -173,32 +205,32 @@ namespace Polygon_2
             {
                 if (selectedtable == true)
                 {
-                    DialogResult res = MessageBox.Show("Вы уверены что хотите удалить пользователя?", "Сообщение", MessageBoxButtons.YesNo);
+                    DialogResult res = MessageBox.Show(SetLanguage.SetString("Вы уверены что хотите удалить пользователя?"), SetLanguage.SetString("Сообщение"), MessageBoxButtons.YesNo);
                     if (res == DialogResult.Yes)
                         sql.CommandToTable("delete From `stat` where `id_stat` = '" + dataGridView6[0, dataGridView6.CurrentCell.RowIndex].Value.ToString() + "';");
                 }
                 else
                 {
-                    DialogResult res = MessageBox.Show("Вы уверены что хотите удалить пользователя?", "Сообщение", MessageBoxButtons.YesNo);
+                    DialogResult res = MessageBox.Show(SetLanguage.SetString("Вы уверены что хотите удалить пользователя?"), SetLanguage.SetString("Сообщение"), MessageBoxButtons.YesNo);
                     if (res == DialogResult.Yes)
                         sql.CommandToTable("delete From `authorization` where `ID` = '" + dataGridView5[0, dataGridView5.CurrentCell.RowIndex].Value.ToString() + "';");
                 }
                 update();
             }
             catch (NullReferenceException)
-            { MessageBox.Show("Выберете запись"); }
+            { MessageBox.Show(SetLanguage.SetString("Выберете запись")); }
         }
         private void PictureBox6_Click(object sender, EventArgs e)
         {
             try
             {
-                DialogResult res = MessageBox.Show("Вы уверены что хотите удалить заказ?", "Сообщение", MessageBoxButtons.YesNo);
+                DialogResult res = MessageBox.Show(SetLanguage.SetString("Вы уверены что хотите удалить заказ?"), SetLanguage.SetString("Сообщение"), MessageBoxButtons.YesNo);
                 if (res == DialogResult.Yes)
                     sql.CommandToTable("delete From `orders` where `id` = '" + dataGridView4[0, dataGridView4.CurrentCell.RowIndex].Value.ToString() + "';");
                 update();
             }
             catch (NullReferenceException)
-            { MessageBox.Show("Выберете запись"); }
+            { MessageBox.Show(SetLanguage.SetString("Выберете запись")); }
         }
         #region изменения
         private void PictureBox8_Click(object sender, EventArgs e)
@@ -255,7 +287,7 @@ namespace Polygon_2
                 update();
             }
             catch (NullReferenceException)
-            { MessageBox.Show("Выберете запись"); }
+            { MessageBox.Show(SetLanguage.SetString("Выберете запись")); }
         }
         #endregion
         //реализовать нормальную смену таблиц

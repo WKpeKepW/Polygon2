@@ -1,7 +1,6 @@
 C:\Users\KpeKep\source\repos\Polygon 2\Polygon 2\bin\Debug\Polygon 2.exe.config
 C:\Users\KpeKep\source\repos\Polygon 2\Polygon 2\bin\Debug\Polygon 2.exe
 C:\Users\KpeKep\source\repos\Polygon 2\Polygon 2\bin\Debug\Polygon 2.pdb
-C:\Users\KpeKep\source\repos\Polygon 2\Polygon 2\obj\Debug\Polygon 2.csprojAssemblyReference.cache
 C:\Users\KpeKep\source\repos\Polygon 2\Polygon 2\obj\Debug\Polygon_2.Form1.resources
 C:\Users\KpeKep\source\repos\Polygon 2\Polygon 2\obj\Debug\Polygon_2.Properties.Resources.resources
 C:\Users\KpeKep\source\repos\Polygon 2\Polygon 2\obj\Debug\Polygon 2.csproj.GenerateResource.cache
@@ -18,3 +17,4 @@ C:\Users\KpeKep\source\repos\Polygon 2\Polygon 2\bin\Debug\Google.Protobuf.xml
 C:\Users\KpeKep\source\repos\Polygon 2\Polygon 2\bin\Debug\MySql.Data.xml
 C:\Users\KpeKep\source\repos\Polygon 2\Polygon 2\bin\Debug\Renci.SshNet.xml
 C:\Users\KpeKep\source\repos\Polygon 2\Polygon 2\obj\Debug\Polygon 2.csproj.CopyComplete
+C:\Users\KpeKep\source\repos\Polygon 2\Polygon 2\obj\Debug\Polygon 2.csprojAssemblyReference.cache
