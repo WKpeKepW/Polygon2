@@ -31,7 +31,7 @@ namespace Polygon_2
             dict.Add("Данные о заказах", "Order data");
             dict.Add("Данные о пользователях","Users data");
             dict.Add("Меню","Menu");
-            dict.Add("ФИО", "FIO");
+            dict.Add("ФИО", "Name");
             dict.Add("Описание", "Description");
             dict.Add("Доп.информация", "Add.Information");
             dict.Add("Поиск:","Search:");
