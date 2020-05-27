@@ -290,7 +290,6 @@ namespace Polygon_2
             { MessageBox.Show(SetLanguage.SetString("Выберете запись")); }
         }
         #endregion
-        //реализовать нормальную смену таблиц
         #region поиск
         private void TextBox19_TextChanged(object sender, EventArgs e)
         {
