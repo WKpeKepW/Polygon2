@@ -527,6 +527,8 @@
             // 
             // pictureBox14
             // 
+            this.pictureBox14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox14.BackColor = System.Drawing.Color.Black;
             this.pictureBox14.Location = new System.Drawing.Point(-20, 47);
             this.pictureBox14.Name = "pictureBox14";
