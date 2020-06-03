@@ -25,13 +25,15 @@ namespace Polygon_2
             Sr = new StreamReader(Application.StartupPath+"\\config.txt");
             string text = Sr.ReadToEnd();
             string[] buff = text.Split(';');
-            mysqlconstr = new MySqlConnectionStringBuilder();
-            mysqlconstr.Server = buff[0];
-            mysqlconstr.Port = Convert.ToUInt32(buff[1]);
-            mysqlconstr.Database = buff[2];
-            mysqlconstr.UserID = buff[3];
-            mysqlconstr.Password = buff[4];
-            mysqlconstr.CharacterSet = buff[5];
+            mysqlconstr = new MySqlConnectionStringBuilder
+            {
+                Server = buff[0],
+                Port = Convert.ToUInt32(buff[1]),
+                Database = buff[2],
+                UserID = buff[3],
+                Password = buff[4],
+                CharacterSet = buff[5]
+            };
             connect = new MySqlConnection(mysqlconstr.ToString());
         }
         public DataTable Show(string nametable = "test", string quary = "")

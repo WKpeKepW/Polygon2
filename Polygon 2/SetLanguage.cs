@@ -12,40 +12,42 @@ namespace Polygon_2
         static public bool IsEnglishOn = false;
         static Dictionary<string, string> DictianaryofLanguage()
         {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            dict.Add("Ip хоста", "Ip host");
-            dict.Add("Порт", "Port");
-            dict.Add("Название базы", "Name of DB");
-            dict.Add("Имя юзера", "Name of user");
-            dict.Add("Пароль", "Password");
-            dict.Add("Код. конекта", "Code. connect");
-            dict.Add("Изменить", "Change");
-            dict.Add("Настройки успешно изменены", "Settings successful change");
-            dict.Add("Настройки", "Settings");
-            dict.Add("Ошибка авторизации", "Error Authorization");
-            dict.Add("Авторизация", "Authorization");
-            dict.Add("Логин", "Login");
-            dict.Add("Заказы","Orders");
-            dict.Add("Мои заказы", "My orders");
-            dict.Add("История", "History");
-            dict.Add("Данные о заказах", "Order data");
-            dict.Add("Данные о пользователях","Users data");
-            dict.Add("Меню","Menu");
-            dict.Add("ФИО", "Name");
-            dict.Add("Описание", "Description");
-            dict.Add("Доп.информация", "Add.Information");
-            dict.Add("Поиск:","Search:");
-            dict.Add("Компания","Company");
-            dict.Add("Телефон или Email","PhoneNuber or Email");
-            dict.Add("Отмена","Cancel");
-            dict.Add("Имя пользователя","User name");
-            dict.Add("Повторить пароль","Repeat password");
-            dict.Add("Выберете запись", "Select notation");
-            dict.Add("Не совпадение паролей","Password mismatch");
-            dict.Add("Ошибка", "Error");
-            dict.Add("Вы уверены что хотите удалить заказ?", "Are you sure you want to delete the order?");
-            dict.Add("Сообщение","Messege");
-            dict.Add("Вы уверены что хотите удалить пользователя?", "Are you sure you want to delete the user?");
+            Dictionary<string, string> dict = new Dictionary<string, string>
+            {
+                { "Ip хоста", "Ip host" },
+                { "Порт", "Port" },
+                { "Название базы", "Name of DB" },
+                { "Имя юзера", "Name of user" },
+                { "Пароль", "Password" },
+                { "Код. конекта", "Code. connect" },
+                { "Изменить", "Change" },
+                { "Настройки успешно изменены", "Settings successful change" },
+                { "Настройки", "Settings" },
+                { "Ошибка авторизации", "Error Authorization" },
+                { "Авторизация", "Authorization" },
+                { "Логин", "Login" },
+                { "Заказы", "Orders" },
+                { "Мои заказы", "My orders" },
+                { "История", "History" },
+                { "Данные о заказах", "Order data" },
+                { "Данные о пользователях", "Users data" },
+                { "Меню", "Menu" },
+                { "ФИО", "Name" },
+                { "Описание", "Description" },
+                { "Доп.информация", "Add.Information" },
+                { "Поиск:", "Search:" },
+                { "Компания", "Company" },
+                { "Телефон или Email", "PhoneNuber or Email" },
+                { "Отмена", "Cancel" },
+                { "Имя пользователя", "User name" },
+                { "Повторить пароль", "Repeat password" },
+                { "Выберете запись", "Select notation" },
+                { "Не совпадение паролей", "Password mismatch" },
+                { "Ошибка", "Error" },
+                { "Вы уверены что хотите удалить заказ?", "Are you sure you want to delete the order?" },
+                { "Сообщение", "Messege" },
+                { "Вы уверены что хотите удалить пользователя?", "Are you sure you want to delete the user?" }
+            };
             return dict;
         }
         static public void Set(Control This)
