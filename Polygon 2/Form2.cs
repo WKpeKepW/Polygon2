@@ -364,9 +364,28 @@ namespace Polygon_2
             pictureBox21.BackColor = Color.Blue;
             pictureBox22.BackColor = Color.Black;
         }
+
+        public void ExitForm()
+        {
+            DialogResult res = MessageBox.Show(SetLanguage.SetString("Вы уверены что хотите выйти?"), SetLanguage.SetString("Сообщение"), MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                var f1 = new Form1();
+                f1.Show();
+                this.Dispose();
+            }    
+
+        }
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             Environment.Exit(0);
         }
+        #region выход
+        private void pictureBox26_Click(object sender, EventArgs e) => ExitForm();
+        private void pictureBox27_Click(object sender, EventArgs e) => ExitForm();
+        private void pictureBox28_Click(object sender, EventArgs e) => ExitForm();
+        private void pictureBox29_Click(object sender, EventArgs e) => ExitForm();
+        private void pictureBox30_Click(object sender, EventArgs e)=> ExitForm();
+        #endregion
     }
 }

@@ -71,5 +71,10 @@ namespace Polygon_2
             f3 = new Form3();
             f3.Show();
         }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

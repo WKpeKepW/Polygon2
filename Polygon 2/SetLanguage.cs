@@ -46,7 +46,8 @@ namespace Polygon_2
                 { "Ошибка", "Error" },
                 { "Вы уверены что хотите удалить заказ?", "Are you sure you want to delete the order?" },
                 { "Сообщение", "Messege" },
-                { "Вы уверены что хотите удалить пользователя?", "Are you sure you want to delete the user?" }
+                { "Вы уверены что хотите удалить пользователя?", "Are you sure you want to delete the user?" },
+                { "Вы уверены что хотите выйти?","Are you sure you want to logout?" }
             };
             return dict;
         }
