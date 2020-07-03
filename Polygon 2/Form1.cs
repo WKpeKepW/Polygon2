@@ -76,5 +76,15 @@ namespace Polygon_2
         {
             Environment.Exit(0);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            user = "admin";
+            f2 = new Form2();
+            if (f3 != null)
+                f3.Dispose();
+            f2.Show();
+            this.Hide();
+        }
     }
 }
