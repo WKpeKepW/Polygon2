@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace Polygon_2
         Form2 f2;
         Form3 f3;
         static public string user;
+        public static bool DemoVer = false;
         public Form1()
         {
             InitializeComponent();
@@ -79,6 +81,9 @@ namespace Polygon_2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(text:"Внимание вход через режим демонстрации не отображает некоторые функции" +
+                " ,а так же может вызывать ошибки и предназначен для показа интерфейса",caption:"Warning");
+            DemoVer = true;
             user = "admin";
             f2 = new Form2();
             if (f3 != null)

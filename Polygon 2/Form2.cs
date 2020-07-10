@@ -41,7 +41,8 @@ namespace Polygon_2
         public Form2()
         {
             InitializeComponent();
-            Construct();
+            if(!Form1.DemoVer)
+                Construct();
             ChangeLanguageForm();
             Form3.ChangeLanguage += ChangeLanguageForm;
         }
